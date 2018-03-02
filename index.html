@@ -3,85 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-
-    <style type="text/css">
-      .color-red { color: red;}
-    </style>
-
-
   </head>
   <body>
-
     <div id="root">
 
-      <h1 :class="className">Hello World</h1>
-
-
-      <ul>
-        <li v-for="name in names"> {{ name }}</li>
-      </ul>
-
-
-      <input type="text" id="input" v-model="newName">
-
-      <!-- You could also use @title or @click - the @ is the shorthand. -->
-      <button v-bind:title="buttonTitle" v-on:click="addName">Add Name</button>
-      <hr>
-
-      <h1>All Tasks</h1>
-      <ul>
-        <li v-for="task in tasks"> {{ task.description }} </li>
-      </ul>
-
-      <h1>Incomplete Tasks</h1>
-      <ul>
-        <li v-for="task in incompleteTasks"> {{ task.description }} </li>
-      </ul>
+      <task-list></task-list>
 
     </div>
 
+
     <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
-
-    <script>
-
-      var app = new Vue({
-
-          el: '#root',
-
-          data: {
-            message: 'The Message!',
-            className: 'color-red',
-            buttonTitle: 'This button title is added through javascript',
-            newName: '',
-            names: ['Jim', 'Bob', 'Joe'],
-            tasks: [
-              { description: 'Go to the store', completed: false },
-              { description: 'Finish chores', completed: true },
-              { description: 'Make dinner', completed: true },
-              { description: 'Clean room', completed: false },
-              { description: 'Make donation', completed: true },
-              { description: 'Go to bed', completed: false }
-            ]
-
-          },
-
-          computed: {
-            incompleteTasks() {
-              return this.tasks.filter(task => ! task.completed);
-            }
+    <script src="main.js"></script>
 
 
-          },
-
-          methods: {
-            addName() {
-              this.names.push(this.newName);
-              this.newName = '';
-            }
-          },
-
-      })
-
-    </script>
   </body>
 </html>
