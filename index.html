@@ -10,35 +10,11 @@
   <body>
     <div id="root" class="container">
 
-      <tabs>
-        <tab name="About Us" :selected="true">
-          <h1>Here is the content fot the About Us tab.</h1>
-        </tab>
+      <coupon v-on:applied="onCouponApplied"></coupon>
 
-        <tab name="About Our Culture">
-          <h1>Here is the content for the About Our Culture tab.</h1>
-        </tab>
-
-        <tab name="About Our Vision">
-          <h1>Here is the content fot the About Our Vision tab.</h1>
-        </tab>
-      </tabs>
-
-
-
-      <!-- ################    Components    ##################-->
-
-      <!-- <modal-component v-if="showModal" @close-modal="showModal=false">
-        <p>We can insert any text here into the modal.</p>
-      </modal-component>
-      <button @click="showModal = true">Show Modal</button> -->
-
-      <!-- <message-component title="Hello World" body="Lorem ipsum dolar sit amet."></message-component> -->
-
-      <!-- <task-list></task-list> -->
+      <h1 v-if="couponApplied">You Used a Coupon!</h1>
 
     </div>
-
 
     <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
     <script src="main.js"></script>
